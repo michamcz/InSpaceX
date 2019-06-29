@@ -1,19 +1,9 @@
-import { StyleSheet } from 'react-native';
-import Home from './components/Home'
-import Todo from './components/Todo'
-import { createBottomTabNavigator, createAppContainer } from 'react-navigation'
+import React from 'react'
+import { createAppContainer } from 'react-navigation'
+import DrawerNavigator from './Navigation/DrawerNavigator'
 
 
-const TabNavigator = createBottomTabNavigator({
-  Home: {
-    screen: Home,
-  },
-  Todo: {
-    screen: Todo,
-  },
-});
-
-export default createAppContainer(TabNavigator);
+export default createAppContainer(DrawerNavigator);
 
 
 

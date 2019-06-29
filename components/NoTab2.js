@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import { Text, View, Button, StyleSheet } from 'react-native'
 
-const Home = () => {
+const NoTab2 = () => {
   const [count, setCount] = useState(0);
     return (
       <View style = { styles.container }>
-        <Text> This is Home view </Text>
+        <Text> This is NoTab2 view </Text>
         <Text> { count } </Text>
         <Button onPress = { () => { setCount(count+1) }} title="+" />
       </View>
     )
   }
-
+  
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -21,4 +21,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Home
+export default NoTab2

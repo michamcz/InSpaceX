@@ -4,7 +4,8 @@ import { Text, View, Button, StyleSheet } from 'react-native'
 const Todo = () => {
   const [count, setCount] = useState(0);
     return (
-      <View>
+      <View style = { styles.container }>
+        <Text> This is Todo view </Text>
         <Text> { count } </Text>
         <Button onPress = { () => { setCount(count+1) }} title="+" />
       </View>
@@ -17,7 +18,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-  },
+  }
 });
 
-export default Todo;
+export default Todo
