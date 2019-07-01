@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { createDrawerNavigator, DrawerItems } from 'react-navigation';
 import {
   View,
@@ -6,9 +6,9 @@ import {
   Text,
   ScrollView,
 } from 'react-native';
-import MainStack from './MainStack';
 import NoTab1 from '../components/NoTab1';
 import NoTab2 from '../components/NoTab2';
+import MainStackNav from './mainStackNav';
 
 const CustomDrawerComponent = props => (
   <SafeAreaView style={{ flex: 1 }}>
@@ -34,10 +34,10 @@ const CustomDrawerComponent = props => (
   </SafeAreaView>
 );
 
-const DrawerNavigator = createDrawerNavigator(
+export default DrawerNav = createDrawerNavigator(
   {
     MainStack: {
-      screen: MainStack,
+      screen: MainStackNav,
       navigationOptions: {
         drawerLabel: () => null,
       },
@@ -55,4 +55,3 @@ const DrawerNavigator = createDrawerNavigator(
   },
 );
 
-export default DrawerNavigator;

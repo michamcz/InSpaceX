@@ -1,15 +1,15 @@
 import React from 'react'
-import { createStackNavigator, createAppContainer } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation';
 import { TouchableOpacity, View, Text } from 'react-native';
-import Icon from '../node_modules/react-native-vector-icons/Ionicons';
+import Icon from 'react-native-vector-icons/Ionicons';
 import NoTab1 from '../components/NoTab1';
 import NoTab2 from '../components/NoTab2';
-import BottomTabNavigator from './BottomTabNavigator';
+import BottomTabNav from './bottomTabNav';
 
-const MainStack = createStackNavigator(
+export default MainStackNav = createStackNavigator(
   {
-    BottomTabNavigator: {
-      screen: BottomTabNavigator,
+    BottomTabNav: {
+      screen: BottomTabNav,
       navigationOptions: ({ navigation }) => ({
         title: 'Back',
         headerLeft: (
@@ -49,4 +49,3 @@ const MainStack = createStackNavigator(
   },
 );
 
-export default createAppContainer(MainStack);

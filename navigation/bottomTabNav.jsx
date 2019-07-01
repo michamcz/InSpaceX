@@ -1,11 +1,11 @@
 import React from 'react'
-import { createMaterialTopTabNavigator, createAppContainer } from 'react-navigation';
-import Icon from '../node_modules/react-native-vector-icons/Ionicons';
+import { createMaterialTopTabNavigator } from 'react-navigation';
+import Icon from 'react-native-vector-icons/Ionicons';
 import Home from '../components/Home';
 import Todo from '../components/Todo';
 import News from '../components/News';
 
-const BottomTabNavigator = createMaterialTopTabNavigator(
+export default BottomTabNav = createMaterialTopTabNavigator(
   {
     Home: {
       screen: Home,
@@ -55,5 +55,3 @@ const BottomTabNavigator = createMaterialTopTabNavigator(
     },
   },
 );
-
-export default createAppContainer(BottomTabNavigator);
