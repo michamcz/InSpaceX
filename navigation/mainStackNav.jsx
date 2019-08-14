@@ -1,38 +1,44 @@
 import React from 'react'
 import { createStackNavigator } from 'react-navigation';
-import { TouchableOpacity, View, Text } from 'react-native';
+import { TouchableOpacity, View, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import NoTab1 from '../components/NoTab1';
 import NoTab2 from '../components/NoTab2';
 import BottomTabNav from './bottomTabNav';
+import wideLogo from '../assets/logo-wide.png'
 
-export default MainStackNav = createStackNavigator(
+const MainStackNav = createStackNavigator(
   {
     BottomTabNav: {
       screen: BottomTabNav,
       navigationOptions: ({ navigation }) => ({
-        title: 'Back',
         headerLeft: (
           <TouchableOpacity onPress={() => navigation.toggleDrawer()}>
             <View style={{ paddingHorizontal: 10 }}>
-              <Icon name="md-menu" size={24} />
+              <Icon name="md-menu" size={30} color="white" paddingHorizontal="10" />
             </View>
           </TouchableOpacity>
         ),
-        headerTitle: (
+        headerRight: (
           <View
             style={{
+              flex: 1,
               flexDirection: 'row',
-              alignItems: 'center',
+              justifyContent: 'center',
+              paddingHorizontal: 10,
+              paddingBottom: 5,
             }}
           >
-            <Text style={{ fontSize: 20 }}>App</Text>
-            {/* <Image
-            style={{ width: 50, height: 50 }}
-            source={require('../images/logo.png')}
-          /> */}
+            <Image
+              style={{ width: 180, height: 40 }}
+              source={wideLogo}
+            />
           </View>
         ),
+        headerStyle: {
+          backgroundColor: '#0159A3',
+
+        },
       }),
     },
     NoTab1: {
@@ -42,10 +48,7 @@ export default MainStackNav = createStackNavigator(
       screen: NoTab2,
     },
   },
-  {
-    headerStyle: {
-      backgroundColor: 'black',
-    },
-  },
 );
+
+export default MainStackNav;
 

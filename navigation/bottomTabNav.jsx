@@ -5,14 +5,14 @@ import Home from '../components/Home';
 import Todo from '../components/Todo';
 import News from '../components/News';
 
-export default BottomTabNav = createMaterialTopTabNavigator(
+const BottomTabNav = createMaterialTopTabNavigator(
   {
     Home: {
       screen: Home,
       navigationOptions: {
         title: 'Home',
         tabBarIcon: ({ tintColor }) => (
-          <Icon name="ios-home" color={tintColor} size={24} />
+          <Icon name="ios-rocket" color={tintColor} size={24} />
         ),
       },
     },
@@ -21,7 +21,7 @@ export default BottomTabNav = createMaterialTopTabNavigator(
       navigationOptions: {
         title: 'Todo',
         tabBarIcon: ({ tintColor }) => (
-          <Icon name="ios-checkmark-circle" color={tintColor} size={24} />
+          <Icon name="md-wifi" color={tintColor} size={24} />
         ),
       },
     },
@@ -30,28 +30,32 @@ export default BottomTabNav = createMaterialTopTabNavigator(
       navigationOptions: {
         title: 'News',
         tabBarIcon: ({ tintColor }) => (
-          <Icon name="ios-bookmark" color={tintColor} size={24} />
+          <Icon name="md-journal" color={tintColor} size={24} />
         ),
       },
     },
   },
   {
     tabBarPosition: 'bottom',
+    swipeEnabled: false,
+    // animationEnabled: false,
     tabBarOptions: {
-      activeTintColor: 'black',
-      inactiveTintColor: 'gray',
+      activeTintColor: '#FFFFFF',
+      inactiveTintColor: '#FFFFFF',
       style: {
-        borderTopColor: 'gray',
         borderTopWidth: 0.5,
-        backgroundColor: '#000080',
+        backgroundColor: '#102027',
         height: 50,
       },
       indicatorStyle: {
         height: 2.3,
-        backgroundColor: 'black',
+        backgroundColor: '#003174',
       },
       showIcon: true,
-      showLabel: false,
+      showLabel: false
     },
   },
 );
+
+export default BottomTabNav;
+

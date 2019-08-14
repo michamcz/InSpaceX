@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import {
   Text,
-  View,
   Button,
   StyleSheet,
 } from 'react-native';
+import { SafeAreaView } from 'react-navigation'
 
 const styles = StyleSheet.create({
   container: {
@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
 const Todo = () => {
   const [count, setCount] = useState(0);
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Text> This is Todo view </Text>
       <Text>
         {count}
@@ -29,7 +29,7 @@ const Todo = () => {
         }}
         title="+"
       />
-    </View>
+    </SafeAreaView>
   );
 };
 

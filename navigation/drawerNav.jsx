@@ -1,32 +1,25 @@
 import React from 'react';
-import { createDrawerNavigator, DrawerItems } from 'react-navigation';
+import { createDrawerNavigator, DrawerItems, createAppContainer } from 'react-navigation';
 import {
   View,
   SafeAreaView,
-  Text,
   ScrollView,
+  Image,
 } from 'react-native';
 import NoTab1 from '../components/NoTab1';
 import NoTab2 from '../components/NoTab2';
 import MainStackNav from './mainStackNav';
+import blueLogo from '../assets/logo-white.png'
 
 const CustomDrawerComponent = props => (
   <SafeAreaView style={{ flex: 1 }}>
     <View
       style={{ height: 140, alignItems: 'center', justifyContent: 'center' }}
     >
-      {/* <Image
-        source={require('../images/user.png')}
-        style={{ height: 80, width: 80, borderRadius: 40 }}
-      /> */}
-      <Text
-        style={{
-          fontSize: 24,
-          paddingTop: 10,
-        }}
-      >
-        kappa
-      </Text>
+      <Image
+        style={{ height: 80, width: 100 }}
+        source={blueLogo}
+      />
     </View>
     <ScrollView>
       <DrawerItems {...props} />
@@ -34,7 +27,7 @@ const CustomDrawerComponent = props => (
   </SafeAreaView>
 );
 
-export default DrawerNav = createDrawerNavigator(
+const DrawerNav = createDrawerNavigator(
   {
     MainStack: {
       screen: MainStackNav,
@@ -51,7 +44,29 @@ export default DrawerNav = createDrawerNavigator(
   },
   {
     contentComponent: CustomDrawerComponent,
-    drawerBackgroundColor: 'white',
+    drawerBackgroundColor: '#102027',
+    contentOptions: {
+      inactiveBackgroundColor: '#102027',
+      activeBackgroundColor: '#102027',
+      itemsContainerStyle: {
+        marginVertical: 0,
+      },
+      iconContainerStyle: {
+        opacity: 0.5,
+      },
+      itemStyle: {
+        justifyContent: 'center',
+        borderBottomColor: "#62727B",
+        borderBottomWidth: 1,
+      },
+      labelStyle: {
+        fontSize: 25,
+        color: "#FFFFFF",
+        // fontFamily: 'Audiowide'
+      }
+    }
   },
 );
+
+export default createAppContainer(DrawerNav);
 

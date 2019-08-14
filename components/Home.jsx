@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import {
   Text,
-  View,
   Button,
   StyleSheet,
 } from 'react-native';
+import { SafeAreaView } from 'react-navigation'
 
 const styles = StyleSheet.create({
   container: {
@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
 const Home = () => {
   const [count, setCount] = useState(0);
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Text> This is Home view </Text>
       <Text>
         {count}
@@ -29,7 +29,7 @@ const Home = () => {
         }}
         title="+"
       />
-    </View>
+    </SafeAreaView>
   );
 };
 
