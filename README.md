@@ -1,5 +1,12 @@
-# react-native-app
+# InSpaceX
 
-run: 
-1. npm install
-2. expo start 
+### Mobile app showing SpaceX company updates.
+
+### Based on SpaceX REST API: https://github.com/r-spacex/SpaceX-API
+
+
+#### run:
+```
+npm install
+expo start
+```
