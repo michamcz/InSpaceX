@@ -30,14 +30,14 @@ const MainStackNav = createStackNavigator(
             }}
           >
             <Image
-              style={{ width: 180, height: 40 }}
+              style={{ width: 165, height: 40 }}
               source={wideLogo}
             />
           </View>
         ),
         headerStyle: {
           backgroundColor: '#0159A3',
-
+          height: 45,
         },
       }),
     },

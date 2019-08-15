@@ -2,29 +2,40 @@ import React from 'react';
 import { createDrawerNavigator, DrawerItems, createAppContainer } from 'react-navigation';
 import {
   View,
-  SafeAreaView,
   ScrollView,
   Image,
 } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 import NoTab1 from '../components/NoTab1';
 import NoTab2 from '../components/NoTab2';
 import MainStackNav from './mainStackNav';
 import blueLogo from '../assets/logo-white.png'
 
 const CustomDrawerComponent = props => (
-  <SafeAreaView style={{ flex: 1 }}>
-    <View
-      style={{ height: 140, alignItems: 'center', justifyContent: 'center' }}
+  <View style={{ flex: 1 }}>
+    <LinearGradient
+      colors={['#0159a3', '#014f97', '#01458b', '#013b80', '#003174']}
     >
-      <Image
-        style={{ height: 80, width: 100 }}
-        source={blueLogo}
-      />
-    </View>
+      <View
+        style={
+          {
+            height: 160,
+            alignItems: 'center',
+            justifyContent: 'center',
+            // backgroundColor: '#0159a3'
+          }
+        }
+      >
+        <Image
+          style={{ height: 80, width: 100, marginBottom: -30 }}
+          source={blueLogo}
+        />
+      </View>
+    </LinearGradient>
     <ScrollView>
       <DrawerItems {...props} />
     </ScrollView>
-  </SafeAreaView>
+  </View>
 );
 
 const DrawerNav = createDrawerNavigator(
@@ -45,6 +56,7 @@ const DrawerNav = createDrawerNavigator(
   {
     contentComponent: CustomDrawerComponent,
     drawerBackgroundColor: '#102027',
+    overlayColor: 'rgba(0,0,0,0.4)',
     contentOptions: {
       inactiveBackgroundColor: '#102027',
       activeBackgroundColor: '#102027',
@@ -58,9 +70,10 @@ const DrawerNav = createDrawerNavigator(
         justifyContent: 'center',
         borderBottomColor: "#62727B",
         borderBottomWidth: 1,
+        marginTop: 5,
       },
       labelStyle: {
-        fontSize: 25,
+        fontSize: 15,
         color: "#FFFFFF",
         // fontFamily: 'Audiowide'
       }
