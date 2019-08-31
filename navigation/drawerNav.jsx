@@ -4,53 +4,57 @@ import {
   View,
   ScrollView,
   Image,
+  Text,
+  ImageBackground
 } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
-import NoTab1 from '../components/NoTab1';
-import NoTab2 from '../components/NoTab2';
+import Settings from '../components/Settings';
+import About from '../components/About';
 import MainStackNav from './mainStackNav';
 import blueLogo from '../assets/logo-white.png'
+import bg1 from '../assets/bg1.jpg';
 
 const CustomDrawerComponent = props => (
   <View style={{ flex: 1 }}>
-    <LinearGradient
-      colors={['#0159a3', '#014f97', '#01458b', '#013b80', '#003174']}
-    >
-      <View
-        style={
-          {
-            height: 160,
-            alignItems: 'center',
-            justifyContent: 'center',
-            // backgroundColor: '#0159a3'
-          }
+    <ImageBackground
+      source={bg1}
+      style={
+        {
+          height: 160,
+          alignItems: 'center',
+          justifyContent: 'center',
         }
-      >
-        <Image
-          style={{ height: 80, width: 100, marginBottom: -30 }}
-          source={blueLogo}
-        />
-      </View>
-    </LinearGradient>
+      }
+    >
+      <Image
+        style={{ height: 80, width: 100, marginBottom: -30 }}
+        source={blueLogo}
+      />
+    </ImageBackground>
     <ScrollView>
-      <DrawerItems {...props} />
+      <DrawerItems
+        {...props}
+        getLabel={(scene) => (
+          <View style={{ flex: 1, alignItems: 'center' }}>
+            <Text style={{ fontSize: 22, color: '#FFF', paddingVertical: 10, fontFamily: 'Audiowide' }}>
+              {props.getLabel(scene)}
+            </Text>
+          </View>
+        )}
+      />
     </ScrollView>
-  </View>
+  </View >
 );
 
 const DrawerNav = createDrawerNavigator(
   {
-    MainStack: {
+    Home: {
       screen: MainStackNav,
-      navigationOptions: {
-        drawerLabel: () => null,
-      },
     },
-    NoTab1: {
-      screen: NoTab1,
+    Settings: {
+      screen: Settings,
     },
-    NoTab2: {
-      screen: NoTab2,
+    About: {
+      screen: About,
     },
   },
   {

@@ -2,8 +2,8 @@ import React from 'react'
 import { createStackNavigator } from 'react-navigation';
 import { TouchableOpacity, View, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import NoTab1 from '../components/NoTab1';
-import NoTab2 from '../components/NoTab2';
+import Settings from '../components/Settings';
+import About from '../components/About';
 import BottomTabNav from './bottomTabNav';
 import wideLogo from '../assets/logo-wide.png'
 
@@ -41,11 +41,11 @@ const MainStackNav = createStackNavigator(
         },
       }),
     },
-    NoTab1: {
-      screen: NoTab1,
+    Settings: {
+      screen: Settings,
     },
-    NoTab2: {
-      screen: NoTab2,
+    About: {
+      screen: About,
     },
   },
 );
