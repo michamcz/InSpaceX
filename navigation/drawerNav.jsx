@@ -34,7 +34,7 @@ const CustomDrawerComponent = props => (
       <DrawerItems
         {...props}
         getLabel={(scene) => (
-          <View style={{ flex: 1, alignItems: 'center' }}>
+          <View style={{ flex: 1, alignItems: 'flex-start', paddingStart: 30 }}>
             <Text style={{ fontSize: 22, color: '#FFF', paddingVertical: 10, fontFamily: 'Audiowide' }}>
               {props.getLabel(scene)}
             </Text>
