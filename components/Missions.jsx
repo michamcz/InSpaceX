@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import { View, Text, Button } from 'react-native';
-import axios from 'axios'
+import { ScrollView } from 'react-native-gesture-handler';
+import { Text } from 'react-native'
+import axios from 'axios';
+import MissionTile from './MissionTile';
 
 const Missions = () => {
   const [launches, setLaunches] = useState([]);
@@ -14,27 +16,37 @@ const Missions = () => {
       try {
         const res = await axios.get(`https://api.spacexdata.com/v3/launches/past?order=desc&limit=10&offset=${offset}`)
         setLaunches(oldlaunches => [...oldlaunches, ...res.data])
-        setIsLoading(false)
+        setIsLoading(false);
       } catch (err) {
         setError(err)
         console.error(err);
       }
     }
     fetchData();
-  }, [offset])
+  }, [offset]);
 
   useEffect(() => {
-    setOffset(launches.length)
+    setOffset(launches.length);
   }, [isLoading])
 
   return (
-    <View>
-      <Text>
-        {`offset: ${offset} `}
-        {`launches: ${launches.length} `}
-        {launches ? launches.map(launch => launch.mission_name) : null}
+    <ScrollView style={{ flex: 1 }}>
+      <Text style={{ fontFamily: "Audiowide", fontSize: 20, margin: 5, alignSelf: 'center' }}>
+        PREVIOUS LAUNCHES
       </Text>
-    </View>
+      {/* {`offset: ${offset}, launches: ${launches.length} `} */}
+      {launches ? (
+        launches.map(launch => <MissionTile key={launch.flight_number} launch={launch} />)
+      ) : null
+      }
+      {
+        isLoading ? (
+          <Text style={{ fontFamily: "Audiowide", fontSize: 20, margin: 5, alignSelf: 'center' }}>
+            LOADING...
+          </Text>
+        ) : null
+      }
+    </ScrollView>
   );
 };
 

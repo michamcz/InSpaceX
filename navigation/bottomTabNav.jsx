@@ -37,8 +37,7 @@ const BottomTabNav = createMaterialTopTabNavigator(
   },
   {
     tabBarPosition: 'bottom',
-    swipeEnabled: false,
-    // animationEnabled: false,
+    swipeEnabled: true,
     tabBarOptions: {
       activeTintColor: '#FFFFFF',
       inactiveTintColor: '#FFFFFF',
