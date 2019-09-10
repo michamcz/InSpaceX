@@ -79,7 +79,6 @@ const DrawerNav = createDrawerNavigator(
       labelStyle: {
         fontSize: 15,
         color: "#FFFFFF",
-        // fontFamily: 'Audiowide'
       }
     }
   },

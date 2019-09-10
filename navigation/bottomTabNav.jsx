@@ -2,7 +2,7 @@ import React from 'react'
 import { createMaterialTopTabNavigator } from 'react-navigation';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Home from '../components/Home';
-import Todo from '../components/Todo';
+import Upcoming from '../components/Upcoming';
 import News from '../components/News';
 
 const BottomTabNav = createMaterialTopTabNavigator(
@@ -17,9 +17,9 @@ const BottomTabNav = createMaterialTopTabNavigator(
       },
     },
     Todo: {
-      screen: Todo,
+      screen: Upcoming,
       navigationOptions: {
-        title: 'Todo',
+        title: 'Upcoming',
         tabBarIcon: ({ tintColor }) => (
           <Icon name="md-wifi" color={tintColor} size={24} />
         ),
@@ -48,7 +48,7 @@ const BottomTabNav = createMaterialTopTabNavigator(
       },
       indicatorStyle: {
         height: 2.3,
-        backgroundColor: '#003174',
+        backgroundColor: '#0159A3',
       },
       showIcon: true,
       showLabel: false
