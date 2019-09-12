@@ -1,9 +1,10 @@
 import React from 'react';
 import { StyleSheet, Text } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
-import PrevMissions from './PrevMissions'
 import { ScrollView } from 'react-native-gesture-handler';
-import NextMission from './NextMission'
+import NextMission from '../components/NextMission'
+import PrevMissions from '../components/PrevMissions'
+
 
 const styles = StyleSheet.create({
   container: {

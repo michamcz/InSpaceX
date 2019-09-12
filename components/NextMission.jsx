@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { Text, View, StyleSheet, Image } from 'react-native'
 import axios from 'axios';
-import logoWhite from '../assets/logo-white.png'
+import defaultPatch from '../assets/defaultPatch.png'
+import useLeftTime from '../utils/leftTimeHook'
 
 const styles = StyleSheet.create({
   container: {
@@ -23,6 +24,7 @@ const styles = StyleSheet.create({
 
 const NextMissionTile = ({ launch }) => {
   const { mission_name, flight_number, links, launch_date_utc, rocket, launch_site } = launch;
+  const timeLeft = useLeftTime(launch_date_utc);
 
   return (
     <View style={styles.container}>
@@ -50,11 +52,14 @@ const NextMissionTile = ({ launch }) => {
             {mission_name}
           </Text>
         </View>
-        <Image source={(links.mission_patch_small !== null) ? { uri: links.mission_patch_small } : logoWhite} style={{ width: 55, height: 55, marginEnd: 15 }} />
+        <Image source={(links.mission_patch_small !== null) ? { uri: links.mission_patch_small } : defaultPatch} style={{ width: 80, height: 80, marginEnd: 15 }} />
       </View>
-      <View style={{ flex: 1, width: '100%', }}>
-        <Text style={{ fontSize: 15, color: '#FFF', paddingLeft: 15, paddingBottom: 15 }}>
-          Launch Site: {launch_site.site_name}
+      <View style={{ flex: 1, width: '100%', justifyContent: 'center', alignItems: 'center', }}>
+        <Text style={{ fontSize: 25, color: '#FFF', paddingBottom: 10, fontFamily: 'Audiowide' }}>
+          {`T- ${timeLeft.days} d ${timeLeft.hours} h ${timeLeft.minutes} m`}
+        </Text>
+        <Text style={{ fontSize: 12, color: '#FFF', paddingBottom: 10, fontFamily: 'Audiowide' }}>
+          {launch_site.site_name}
         </Text>
       </View>
     </View>

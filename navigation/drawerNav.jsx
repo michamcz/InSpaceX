@@ -7,8 +7,8 @@ import {
   Text,
   ImageBackground
 } from 'react-native';
-import Settings from '../components/Settings';
-import About from '../components/About';
+import Settings from '../screens/Settings';
+import About from '../screens/About';
 import MainStackNav from './mainStackNav';
 import blueLogo from '../assets/logo-white.png'
 import bg1 from '../assets/bg1.jpg';

@@ -5,7 +5,7 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-navigation'
 import { ScrollView } from 'react-native-gesture-handler';
-import UpcmMissions from './UpcmMissions'
+import UpcmMissions from '../components/UpcmMissions'
 
 const styles = StyleSheet.create({
   container: {

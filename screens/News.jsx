@@ -9,7 +9,7 @@ import { SafeAreaView } from 'react-navigation'
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#37474F',
     alignItems: 'center',
     justifyContent: 'center',
   },

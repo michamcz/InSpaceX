@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
-import logoWhite from '../assets/logo-white.png'
+import defaultPatch from '../assets/defaultPatch.png'
 
 const styles = StyleSheet.create({
   container: {
@@ -62,7 +62,7 @@ const MissionTile = ({ launch }) => {
               {mission_name}
             </Text>
           </View>
-          <Image source={(links.mission_patch_small !== null) ? { uri: links.mission_patch_small } : logoWhite} style={{ width: 55, height: 55, marginEnd: 15 }} />
+          <Image source={(links.mission_patch_small !== null) ? { uri: links.mission_patch_small } : defaultPatch} style={{ width: 55, height: 55, marginEnd: 15 }} />
         </View>
       </View>
     </View >

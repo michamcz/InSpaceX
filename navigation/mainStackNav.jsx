@@ -2,8 +2,8 @@ import React from 'react'
 import { createStackNavigator } from 'react-navigation';
 import { TouchableOpacity, View, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import Settings from '../components/Settings';
-import About from '../components/About';
+import Settings from '../screens/Settings';
+import About from '../screens/About';
 import BottomTabNav from './bottomTabNav';
 import wideLogo from '../assets/logo-wide.png'
 

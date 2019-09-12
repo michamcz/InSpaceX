@@ -1,9 +1,9 @@
 import React from 'react'
 import { createMaterialTopTabNavigator } from 'react-navigation';
 import Icon from 'react-native-vector-icons/Ionicons';
-import Home from '../components/Home';
-import Upcoming from '../components/Upcoming';
-import News from '../components/News';
+import Home from '../screens/Home';
+import Upcoming from '../screens/Upcoming';
+import News from '../screens/News';
 
 const BottomTabNav = createMaterialTopTabNavigator(
   {
