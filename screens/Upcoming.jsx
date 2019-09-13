@@ -16,14 +16,14 @@ const styles = StyleSheet.create({
   },
 });
 
-const Upcoming = () => {
+const Upcoming = (props) => {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
         <Text style={{ fontFamily: "Audiowide", fontSize: 15, margin: 5, alignSelf: 'flex-start' }}>
           UPCOMING LAUNCHES
         </Text>
-        <UpcmMissions />
+        <UpcmMissions props={props} />
       </ScrollView>
     </SafeAreaView>
   );

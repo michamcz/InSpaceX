@@ -4,6 +4,7 @@ import { TouchableOpacity, View, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Settings from '../screens/Settings';
 import About from '../screens/About';
+import Details from '../screens/Details'
 import BottomTabNav from './bottomTabNav';
 import wideLogo from '../assets/logo-wide.png'
 
@@ -46,6 +47,16 @@ const MainStackNav = createStackNavigator(
     },
     About: {
       screen: About,
+    },
+    Details: {
+      screen: Details,
+      navigationOptions: ({ navigation }) => ({
+        headerStyle: {
+          backgroundColor: '#0159A3',
+          height: 45,
+        },
+        headerTintColor: 'white',
+      }),
     },
   },
 );

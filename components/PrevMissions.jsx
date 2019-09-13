@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import { Text, View } from 'react-native'
+import { Text, View, Button } from 'react-native'
 import axios from 'axios';
 import MissionTile from './MissionTile';
 
-const PrevMissions = () => {
+const PrevMissions = ({ props }) => {
   const [launches, setLaunches] = useState([]);
   const [offset, setOffset] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
@@ -32,7 +32,7 @@ const PrevMissions = () => {
     <View style={{ flex: 1 }}>
       {
         launches ? (
-          launches.map(launch => <MissionTile key={launch.mission_name} launch={launch} />)
+          launches.map(launch => <MissionTile key={launch.mission_name} launch={launch} props={props} />)
         ) : null
       }
       {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text } from 'react-native';
+import { StyleSheet, Text, Button } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
 import { ScrollView } from 'react-native-gesture-handler';
 import NextMission from '../components/NextMission'
@@ -21,18 +21,18 @@ const styles = StyleSheet.create({
   }
 });
 
-const Home = () => {
+const Home = (props) => {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={{ flex: 1 }}>
         <Text style={styles.headline}>
           NEXT LAUNCH
         </Text>
-        <NextMission />
+        <NextMission props={props} />
         <Text style={styles.headline}>
           PREVIOUS LAUNCHES
         </Text>
-        <PrevMissions />
+        <PrevMissions props={props} />
       </ScrollView>
     </SafeAreaView>
   );
