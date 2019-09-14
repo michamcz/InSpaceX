@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import {
   Text,
-  Button,
   StyleSheet,
   Image,
   View
@@ -14,7 +13,7 @@ import formatDate from '../utils/formatDate'
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#37474F',
+    backgroundColor: '#102027',
     alignItems: 'center',
     justifyContent: 'flex-start',
   },
@@ -22,10 +21,20 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     width: '100%',
-    flexWrap: 'wrap'
+    flexWrap: 'wrap',
+    paddingHorizontal: 10,
+    paddingTop: 5,
+    borderTopWidth: 1,
+    borderTopColor: '#37474F'
   },
   infoBarText: {
     fontSize: 20,
+    color: '#FFF',
+  },
+  infoBarTextContent: {
+    fontSize: 20,
+    color: '#62727B',
+    paddingBottom: 5
   }
 });
 
@@ -36,30 +45,30 @@ const Details = (props) => {
     <SafeAreaView style={styles.container}>
       <ScrollView style={{ flex: 1, width: '100%' }}>
         <View style={{ flex: 1, alignItems: 'center' }}>
-          <Image source={(links.mission_patch_small !== null) ? { uri: links.mission_patch_small } : defaultPatch} style={{ width: 150, height: 150, margin: 20 }} />
-          <Text style={{ fontSize: 35 }}> {mission_name}</Text>
+          <Image source={(links.mission_patch_small !== null) ? { uri: links.mission_patch_small } : defaultPatch} style={{ width: 120, height: 120, margin: 15 }} />
+          <Text style={{ fontSize: 26, color: "#FFF", marginBottom: 15, textAlign: 'center', fontFamily: 'Audiowide' }}> {mission_name}</Text>
           <View style={styles.infoBar}>
             <Text style={styles.infoBarText}>launch date:</Text>
-            <Text style={styles.infoBarText}>{formatDate(launch_date_utc)}</Text>
+            <Text style={styles.infoBarTextContent}>{formatDate(launch_date_utc)}</Text>
           </View>
           <View style={styles.infoBar}>
             <Text style={styles.infoBarText}>launch number:</Text>
-            <Text style={styles.infoBarText}>{flight_number}</Text>
+            <Text style={styles.infoBarTextContent}>{flight_number}</Text>
           </View>
           <View style={styles.infoBar}>
             <Text style={styles.infoBarText}>rocket</Text>
-            <Text style={styles.infoBarText}>
+            <Text style={styles.infoBarTextContent}>
               {`${rocket.rocket_name} `}
               {block !== null ? `block ${block}` : ''}
             </Text>
           </View>
           <View style={styles.infoBar}>
             <Text style={styles.infoBarText}>launch site:</Text>
-            <Text style={styles.infoBarText}>{launch_site.site_name}</Text>
+            <Text style={styles.infoBarTextContent}>{launch_site.site_name}</Text>
           </View>
           <View style={styles.infoBar}>
             <Text style={styles.infoBarText}>payloads:</Text>
-            <Text style={styles.infoBarText}>
+            <Text style={styles.infoBarTextContent}>
               {rocket.second_stage.payloads.map((payload) => `${payload.payload_id} `)}
             </Text>
           </View>
@@ -67,13 +76,13 @@ const Details = (props) => {
             !upcoming ? (
               <View style={styles.infoBar}>
                 <Text style={styles.infoBarText}>mission success:</Text>
-                <Text style={styles.infoBarText}>{launch_success === true ? 'Yes' : 'No'}</Text>
+                <Text style={styles.infoBarTextContent}>{launch_success === true ? 'Yes' : 'No'}</Text>
               </View>
             ) : null
           }
           <View style={styles.infoBar}>
             <Text style={styles.infoBarText}>reused:</Text>
-            <Text style={styles.infoBarText}>
+            <Text style={styles.infoBarTextContent}>
               {reused === true ? 'Yes' : 'No'}
             </Text>
           </View>
@@ -81,7 +90,7 @@ const Details = (props) => {
             !upcoming && landing_intent ? (
               <View style={styles.infoBar}>
                 <Text style={styles.infoBarText}>land success</Text>
-                <Text style={styles.infoBarText}>
+                <Text style={styles.infoBarTextContent}>
                   {land_success === true ? 'Yes' : 'No'}
                 </Text>
               </View>
@@ -91,7 +100,7 @@ const Details = (props) => {
             landing_intent ? (
               <View style={styles.infoBar}>
                 <Text style={styles.infoBarText}>landing vehicle:</Text>
-                <Text style={styles.infoBarText}>
+                <Text style={styles.infoBarTextContent}>
                   {landing_vehicle}
                 </Text>
               </View>
@@ -99,7 +108,7 @@ const Details = (props) => {
               (
                 <View style={styles.infoBar}>
                   <Text style={styles.infoBarText}>landing intent:</Text>
-                  <Text style={styles.infoBarText}>
+                  <Text style={styles.infoBarTextContent}>
                     {landing_intent === true ? 'Yes' : 'No'}
                   </Text>
                 </View>
@@ -109,7 +118,7 @@ const Details = (props) => {
             core_serial ? (
               <View style={styles.infoBar}>
                 <Text style={styles.infoBarText}>core number:</Text>
-                <Text style={styles.infoBarText}>
+                <Text style={styles.infoBarTextContent}>
                   {core_serial}
                 </Text>
               </View>
@@ -119,7 +128,11 @@ const Details = (props) => {
             details ? (
               <View style={styles.infoBar}>
                 <Text style={styles.infoBarText}>details:</Text>
-                <Text style={styles.infoBarText}>
+                <Text style={{
+                  textAlign: 'justify',
+                  fontSize: 20,
+                  color: '#62727B'
+                }}>
                   {details}
                 </Text>
               </View>
