@@ -4,22 +4,22 @@ import {
   Button,
   StyleSheet,
 } from 'react-native';
-import { SafeAreaView } from 'react-navigation';
+import { SafeAreaView } from 'react-navigation'
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#102027',
     alignItems: 'center',
     justifyContent: 'center',
   },
 });
 
-const About = () => {
+const Vehicles = () => {
   const [count, setCount] = useState(0);
   return (
     <SafeAreaView style={styles.container}>
-      <Text> This is About view </Text>
+      <Text> This is News view </Text>
       <Text>
         {count}
       </Text>
@@ -33,4 +33,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default Vehicles;

@@ -3,7 +3,7 @@ import { createMaterialTopTabNavigator } from 'react-navigation';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Home from '../screens/Home';
 import Upcoming from '../screens/Upcoming';
-import News from '../screens/News';
+// import Vehicles from '../screens/Vehicles';
 
 const BottomTabNav = createMaterialTopTabNavigator(
   {
@@ -25,15 +25,15 @@ const BottomTabNav = createMaterialTopTabNavigator(
         ),
       },
     },
-    News: {
-      screen: News,
-      navigationOptions: {
-        title: 'News',
-        tabBarIcon: ({ tintColor }) => (
-          <Icon name="md-journal" color={tintColor} size={24} />
-        ),
-      },
-    },
+    // Vehicles: {
+    //   screen: Vehicles,
+    //   navigationOptions: {
+    //     title: 'Vehicles',
+    //     tabBarIcon: ({ tintColor }) => (
+    //       <Icon name="md-journal" color={tintColor} size={24} />
+    //     ),
+    //   },
+    // },
   },
   {
     tabBarPosition: 'bottom',

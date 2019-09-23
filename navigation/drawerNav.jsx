@@ -1,20 +1,24 @@
 import React from 'react';
-import { createDrawerNavigator, DrawerItems, createAppContainer } from 'react-navigation';
+import {
+  createDrawerNavigator,
+  DrawerItems,
+  createAppContainer
+} from 'react-navigation';
 import {
   View,
   ScrollView,
   Image,
   Text,
-  ImageBackground
+  ImageBackground,
 } from 'react-native';
-import Settings from '../screens/Settings';
-import About from '../screens/About';
+import Stats from '../screens/Stats';
+import CompanyInfo from '../screens/CompanyInfo';
 import MainStackNav from './mainStackNav';
 import blueLogo from '../assets/logo-white.png'
 import bg1 from '../assets/bg1.jpg';
 
 const CustomDrawerComponent = props => (
-  <View style={{ flex: 1 }}>
+  <View style={{ flex: 1, justifyContent: 'flex-start' }}>
     <ImageBackground
       source={bg1}
       style={
@@ -42,6 +46,9 @@ const CustomDrawerComponent = props => (
         )}
       />
     </ScrollView>
+    <Text style={{ alignSelf: 'flex-end', color: '#FFF', fontSize: 13, paddingStart: 7, width: '100%', }}>
+      Michał Czarny 2019
+    </Text>
   </View >
 );
 
@@ -50,11 +57,17 @@ const DrawerNav = createDrawerNavigator(
     Home: {
       screen: MainStackNav,
     },
-    Settings: {
-      screen: Settings,
+    Company: {
+      screen: CompanyInfo,
+      navigationOptions: {
+        title: 'Company Info'
+      }
     },
-    About: {
-      screen: About,
+    Stats: {
+      screen: Stats,
+      navigationOptions: {
+        title: 'Statistics'
+      }
     },
   },
   {
@@ -72,7 +85,7 @@ const DrawerNav = createDrawerNavigator(
       },
       itemStyle: {
         justifyContent: 'center',
-        borderBottomColor: "#62727B",
+        borderBottomColor: "#37474F",
         borderBottomWidth: 1,
         marginTop: 5,
       },

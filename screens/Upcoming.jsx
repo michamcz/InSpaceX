@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
 const Upcoming = (props) => {
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView>
+      <ScrollView style={{ width: '100%' }}>
         <Text style={{ fontFamily: "Audiowide", fontSize: 15, margin: 5, alignSelf: 'flex-start' }}>
           UPCOMING LAUNCHES
         </Text>

@@ -1,7 +1,16 @@
 import React, { useState, useEffect } from 'react'
-import { Text, View } from 'react-native'
+import { Text, View, StyleSheet } from 'react-native'
 import axios from 'axios';
 import MissionTile from './MissionTile';
+
+const styles = StyleSheet.create({
+  error: {
+    fontSize: 20,
+    color: '#FFF',
+    alignSelf: 'center',
+    padding: 10,
+  }
+});
 
 const UpcmMissions = ({ props }) => {
   const [launches, setLaunches] = useState([]);
@@ -29,20 +38,24 @@ const UpcmMissions = ({ props }) => {
   }, [isLoading])
 
   return (
-    <View style={{ flex: 1 }}>
-      {
-        launches ? (
-          launches.map(launch => <MissionTile key={launch.mission_name} launch={launch} props={props} />)
-        ) : null
-      }
-      {
-        isLoading ? (
-          <Text style={{ fontFamily: "Audiowide", fontSize: 20, margin: 5, alignSelf: 'center' }}>
-            LOADING...
+    hasError ? (
+      <Text style={styles.error}> Something went wrong :( </Text>
+    ) : (
+        <View style={{ flex: 1 }}>
+          {
+            launches ? (
+              launches.map(launch => <MissionTile key={launch.mission_name} launch={launch} props={props} />)
+            ) : null
+          }
+          {
+            isLoading ? (
+              <Text style={{ fontFamily: "Audiowide", fontSize: 20, margin: 5, alignSelf: 'center' }}>
+                LOADING...
           </Text>
-        ) : null
-      }
-    </View>
+            ) : null
+          }
+        </View>
+      )
   );
 };
 

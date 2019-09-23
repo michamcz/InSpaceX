@@ -20,6 +20,12 @@ const styles = StyleSheet.create({
     paddingTop: 8,
     paddingHorizontal: 10,
     fontSize: 15,
+  },
+  error: {
+    fontSize: 20,
+    color: '#FFF',
+    alignSelf: 'center',
+    padding: 10
   }
 });
 
@@ -90,20 +96,24 @@ const NextMissions = ({ props }) => {
   }, []);
 
   return (
-    <View style={{ flex: 1 }}>
-      {
-        nextLaunch ? (
-          <NextMissionTile launch={nextLaunch} props={props} />
-        ) : null
-      }
-      {
-        isLoading ? (
-          <Text style={{ fontFamily: "Audiowide", fontSize: 20, margin: 5, alignSelf: 'center' }}>
-            LOADING...
+    hasError ? (
+      <Text style={styles.error}> Unable to load next mission :( </Text>
+    ) : (
+        <View style={{ flex: 1 }}>
+          {
+            nextLaunch ? (
+              <NextMissionTile launch={nextLaunch} props={props} />
+            ) : null
+          }
+          {
+            isLoading ? (
+              <Text style={{ fontFamily: "Audiowide", fontSize: 20, margin: 5, alignSelf: 'center' }}>
+                LOADING...
           </Text>
-        ) : null
-      }
-    </View>
+            ) : null
+          }
+        </View>
+      )
   );
 };
 
