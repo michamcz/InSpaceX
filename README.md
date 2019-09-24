@@ -10,3 +10,7 @@
 npm install
 expo start
 ```
+
+<img src="assets/screenshots/ss1.png" height="700">
+<img src="assets/screenshots/ss2.png" height="700">
+<img src="assets/screenshots/ss3.png" height="700">
